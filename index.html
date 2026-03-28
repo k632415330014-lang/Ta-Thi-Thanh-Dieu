@@ -9,6 +9,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+/* =======================
+   RESET & BASE
+======================= */
 *{
   margin:0;
   padding:0;
@@ -26,7 +29,6 @@ body{
   color:#e0e0e0;
   min-height: 100vh;
 }
-
 @keyframes bg{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -62,40 +64,29 @@ body::after{
   pointer-events:none;
 }
 
-/* HEADER */
+/* =======================
+   HEADER
+======================= */
 header{
   text-align:center;
-  padding:100px 20px;
+  padding:80px 20px;
   color:white;
-}
-.avatar-wrap{
-  display:inline-block;
-  padding:8px;
-  border-radius:50%;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-.avatar{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #fff;
 }
 h1{
   font-size:38px;
-  margin-top:20px;
-  color:#ffffff;
+  margin-bottom:10px;
+  color:#00f5d4;
 }
 .tag{
-  margin-top:10px;
   font-size:16px;
   color:#a0c4ff;
 }
 
-/* SECTIONS */
+/* =======================
+   SECTIONS
+======================= */
 section{
-  padding:70px 10%;
+  padding:60px 10%;
 }
 .title{
   text-align:center;
@@ -104,9 +95,11 @@ section{
   color:#00f5d4;
 }
 
-/* ABOUT */
+/* =======================
+   ABOUT
+======================= */
 .about{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   text-align:center;
   line-height:1.8;
@@ -114,9 +107,16 @@ section{
   color:#dcdcdc;
 }
 
-/* SKILLS */
+/* =======================
+   SKILLS
+======================= */
+.skills-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
 .skill{
-  margin:20px 0;
+  margin:10px 0;
 }
 .skill-name{
   margin-bottom:6px;
@@ -124,44 +124,52 @@ section{
 }
 .skill-bar{
   background:rgba(255,255,255,0.2);
-  height:10px;
+  height:12px;
   border-radius:20px;
   overflow:hidden;
 }
 .skill-progress{
-  height:10px;
+  height:12px;
   background:#4facfe;
   border-radius:20px;
 }
 
-/* PROJECTS */
+/* =======================
+   PROJECTS
+======================= */
 .projects{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:25px;
 }
 .card{
-  background:white;
+  background:rgba(255,255,255,0.05);
   padding:25px;
   border-radius:15px;
   box-shadow:0 10px 25px rgba(0,0,0,0.2);
   transition:0.3s;
+  color:#e0e0e0;
 }
 .card:hover{
   transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,255,255,0.2);
 }
 .card h3{
-  color:#1e2a38;
+  color:#00f5d4;
   margin-bottom:10px;
 }
 
-/* CHART */
+/* =======================
+   CHART
+======================= */
 .chart-container{
-  max-width:600px;
+  max-width:700px;
   margin:auto;
 }
 
-/* CONTACT */
+/* =======================
+   CONTACT
+======================= */
 .contact{
   text-align:center;
 }
@@ -180,51 +188,63 @@ section{
   transform:translateY(-3px) scale(1.05);
 }
 
-/* FOOTER */
+/* =======================
+   FOOTER
+======================= */
 footer{
   text-align:center;
   padding:40px;
   color:#ccc;
 }
-
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="avatar-wrap">
-    <img src="avatar.jpg" class="avatar">
-  </div>
   <h1>Ta Thi Thanh Dieu</h1>
-  <p class="tag">
-    Aspiring Financial Analyst | Finance & Banking Student | Data-Driven Mindset
-  </p>
+  <p class="tag">Finance & Banking Student | Foreign Trade University | Data-Driven Mindset</p>
 </header>
 
 <!-- ABOUT -->
 <section>
   <h2 class="title">About Me</h2>
   <p class="about">
-    I am a Finance and Banking student with a strong interest in financial analysis, investment, and data-driven decision making.
-    Currently developing skills in financial modeling, data analysis, and SQL to better understand financial markets.
-    I am seeking internship opportunities in finance, banking, or fintech to gain real-world experience.
+    Hello! I am <b>Ta Thi Thanh Dieu</b>, a Finance and Banking student at <b>Foreign Trade University</b>.  
+    I am passionate about financial analysis, investment, and data-driven decision making.  
+    I am actively developing skills in financial modeling, data analysis, SQL, and financial technology.  
+    My goal is to gain practical experience through internships and projects in finance, banking, and fintech sectors.
   </p>
 </section>
 
 <!-- SKILLS -->
 <section>
   <h2 class="title">Skills</h2>
-  <div class="skill">
-    <div class="skill-name">Communication</div>
-    <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-  </div>
-  <div class="skill">
-    <div class="skill-name">Financial Analysis</div>
-    <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
-  </div>
-  <div class="skill">
-    <div class="skill-name">SQL</div>
-    <div class="skill-bar"><div class="skill-progress" style="width:70%"></div></div>
+  <div class="skills-container">
+    <div class="skill">
+      <div class="skill-name">Communication</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Financial Analysis</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">SQL</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Excel & Modeling</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Data Visualization</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:70%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Python for Finance</div>
+      <div class="skill-bar"><div class="skill-progress" style="width:65%"></div></div>
+    </div>
   </div>
 </section>
 
@@ -234,22 +254,34 @@ footer{
   <div class="projects">
     <div class="card">
       <h3>Stock Market Analysis</h3>
-      <p>Analyzed stock trends using moving averages and volatility indicators. Built Excel models to support investment decisions.</p>
+      <p>Analyzed stock trends using moving averages, volatility, and momentum indicators. Built Excel models to support investment decisions.</p>
     </div>
     <div class="card">
       <h3>Personal Finance Dashboard</h3>
-      <p>Developed a dashboard to track income and expenses. Improved financial planning through visualization.</p>
+      <p>Developed a dashboard to track income, expenses, and savings goals. Improved financial planning through visualizations.</p>
     </div>
     <div class="card">
       <h3>Bank Risk Analysis</h3>
-      <p>Evaluated liquidity, profitability, and capital ratios to assess banking performance.</p>
+      <p>Evaluated liquidity, profitability, and capital ratios to assess banking performance and risk.</p>
+    </div>
+    <div class="card">
+      <h3>Investment Portfolio Simulation</h3>
+      <p>Built a simulation to project portfolio growth using historical data and risk-adjusted returns.</p>
+    </div>
+    <div class="card">
+      <h3>Fintech Research</h3>
+      <p>Studied emerging fintech trends, digital banking solutions, and blockchain applications in finance.</p>
+    </div>
+    <div class="card">
+      <h3>Financial Modeling Case Study</h3>
+      <p>Developed a discounted cash flow model for a company to assess valuation and investment opportunities.</p>
     </div>
   </div>
 </section>
 
 <!-- CHART -->
 <section>
-  <h2 class="title">Financial Analysis</h2>
+  <h2 class="title">Portfolio Growth</h2>
   <div class="chart-container">
     <canvas id="financeChart"></canvas>
   </div>
@@ -258,9 +290,7 @@ footer{
 <!-- CONTACT -->
 <section class="contact">
   <h2 class="title">Contact</h2>
-  <p style="margin-bottom:20px; color:#ddd;">
-    Open to internships and professional connections
-  </p>
+  <p style="margin-bottom:20px; color:#ddd;">Open to internships and professional connections</p>
   <a href="mailto:tthd2306@gmail.com">Email</a>
   <a href="https://www.facebook.com/share/1Nm2eNwwxY/?mibextid=wwXIfr" target="_blank">Facebook</a>
   <a href="tel:0334215741">0334215741</a>
@@ -271,24 +301,31 @@ footer{
 </footer>
 
 <script>
-const ctx=document.getElementById('financeChart')
-new Chart(ctx,{
-  type:'line',
-  data:{
-    labels:['Jan','Feb','Mar','Apr','May','Jun'],
-    datasets:[{
-      label:'Portfolio Growth Simulation',
-      data:[100,115,130,150,170,200],
-      borderColor:'#4facfe',
-      backgroundColor:'rgba(79,172,254,0.2)',
-      tension:0.4,
-      fill:true
+const ctx = document.getElementById('financeChart');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
+    datasets: [{
+      label: 'Portfolio Growth Simulation',
+      data: [100,115,130,150,170,200,220,250],
+      borderColor: '#4facfe',
+      backgroundColor: 'rgba(79,172,254,0.2)',
+      tension: 0.4,
+      fill: true
     }]
   },
-  options:{
-    responsive:true
+  options: {
+    responsive:true,
+    plugins:{
+      legend:{display:true, labels:{color:'#00f5d4'}}
+    },
+    scales:{
+      x:{ticks:{color:'#dcdcdc'}},
+      y:{ticks:{color:'#dcdcdc'}}
+    }
   }
-})
+});
 </script>
 
 </body>
