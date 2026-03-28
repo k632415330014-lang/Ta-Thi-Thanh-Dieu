@@ -1,301 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ta Thi Thanh Dieu Portfolio</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<title>Tạ Thị Thanh Diệu | Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:linear-gradient(135deg,#ff9a9e,#fad0c4);min-height:100vh;color:#333}
 
-body{
-background:linear-gradient(120deg,#ffd6e7,#ffffff);
-color:#333;
-overflow-x:hidden;
-}
+header{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}
 
-header{
-text-align:center;
-padding:80px 20px;
-}
+.hero{background:white;padding:50px;border-radius:30px;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-width:900px}
 
-.avatar{
-width:300px;
-height:300px;
-border-radius:50%;
-object-fit:cover;
-border:6px solid white;
-box-shadow:0 0 30px #ff7eb3,0 0 60px #ff7eb3;
-animation:float 4s ease-in-out infinite;
-}
+.avatar{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid #ff6fa5;margin-bottom:20px}
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
+h1{font-size:36px;margin-bottom:10px}
 
-h1{
-font-size:42px;
-margin-top:20px;
-}
+.subtitle{color:#777;margin-bottom:20px}
 
-.tag{
-color:#ff4fa3;
-margin-top:10px;
-font-weight:500;
-}
+.social a{margin:0 10px;text-decoration:none;color:white;background:#ff6fa5;padding:10px 18px;border-radius:20px;transition:0.3s}
 
-section{
-padding:80px 10%;
-}
+.social a:hover{background:#ff3e88}
 
-.title{
-font-size:32px;
-margin-bottom:40px;
-text-align:center;
-color:#ff4fa3;
-}
+section{padding:80px 10%;}
 
-.skills{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
+h2{text-align:center;margin-bottom:40px;font-size:32px}
 
-.skill{
-background:white;
-padding:20px 35px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-transition:0.4s;
-}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
 
-.skill:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 15px 40px rgba(255,0,130,0.3);
-}
+.card{background:white;border-radius:20px;padding:30px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.15);transition:0.4s}
 
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+.card:hover{transform:translateY(-10px)}
 
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-transition:0.5s;
-}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
+.gallery img{width:100%;border-radius:20px;cursor:pointer;transition:0.4s}
 
-.card:hover{
-transform:translateY(-15px) rotate(1deg);
-box-shadow:0 20px 50px rgba(255,0,140,0.3);
-}
+.gallery img:hover{transform:scale(1.05)}
 
-.card-content{
-padding:20px;
-}
+.map{position:relative;max-width:900px;margin:auto}
 
-.slider{
-position:relative;
-max-width:800px;
-margin:auto;
-overflow:hidden;
-border-radius:20px;
-}
+.map img{width:100%;border-radius:20px}
 
-.slides{
-display:flex;
-transition:transform 0.6s ease;
-}
+.heart{position:absolute;font-size:28px;cursor:pointer}
 
-.slides img{
-width:800px;
-height:450px;
-object-fit:cover;
-}
+.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center}
 
-.buttons{
-text-align:center;
-margin-top:15px;
-}
+.popup img{max-width:80%;border-radius:20px}
 
-.buttons button{
-padding:10px 18px;
-border:none;
-border-radius:10px;
-background:#ff4fa3;
-color:white;
-cursor:pointer;
-margin:5px;
-}
-
-#map{
-height:450px;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.2);
-}
-
-.contact{
-text-align:center;
-}
-
-.contact a{
-display:inline-block;
-margin:10px;
-padding:12px 20px;
-border-radius:30px;
-background:#ff4fa3;
-color:white;
-text-decoration:none;
-transition:0.3s;
-}
-
-.contact a:hover{
-transform:scale(1.1);
-background:#ff2e93;
-}
-
-footer{
-text-align:center;
-padding:40px;
-color:#777;
-}
+footer{text-align:center;padding:40px;color:white}
 </style>
 </head>
-
 <body>
 
 <header>
+<div class="hero">
 <img src="avatar.jpg" class="avatar">
-<h1>Ta Thi Thanh Dieu</h1>
-<p class="tag">Finance Student | Data Enthusiast | Travel Lover</p>
+<h1>Tạ Thị Thanh Diệu</h1>
+<p class="subtitle">Sinh viên Tài chính - Ngân hàng | Đại học Ngoại thương</p>
+
+<div class="social">
+<a href="https://facebook.com" target="_blank">Facebook</a>
+<a href="https://instagram.com" target="_blank">Instagram</a>
+<a href="mailto:email@gmail.com">Email</a>
+</div>
+
+</div>
 </header>
 
 <section>
-<h2 class="title">Skills</h2>
-<div class="skills">
-<div class="skill">Communication</div>
-<div class="skill">Analysis</div>
-<div class="skill">SQL</div>
+<h2>About Me</h2>
+<div class="cards">
+<div class="card">📚 Sinh viên năm ... ngành Tài chính - Ngân hàng tại Đại học Ngoại thương</div>
+<div class="card">📊 Quan tâm tới tài chính, đầu tư và thị trường vốn</div>
+<div class="card">🌍 Thích du lịch, khám phá và hoạt động xã hội</div>
 </div>
 </section>
 
 <section>
-<h2 class="title">Projects</h2>
-<div class="projects">
-
-<div class="card">
-<img src="dog.jpg">
-<div class="card-content">
-<h3>Animal Rescue</h3>
-<p>Participated in rescuing abandoned dogs and cats and supporting shelters.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="charity.jpg">
-<div class="card-content">
-<h3>Charity Activities</h3>
-<p>Volunteer activities supporting communities and children in difficult areas.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="math.jpg">
-<div class="card-content">
-<h3>Math Competition</h3>
-<p>Participated in mathematics competitions demonstrating logical thinking.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<section>
-<h2 class="title">Travel Gallery</h2>
-<div class="slider">
-<div class="slides" id="slides">
+<h2>Gallery</h2>
+<div class="gallery">
 <img src="mocchau.jpg">
 <img src="hagiang.jpg">
 <img src="quangninh.jpg">
-</div>
-</div>
-
-<div class="buttons">
-<button onclick="prev()">Prev</button>
-<button onclick="next()">Next</button>
+<img src="dog.jpg">
+<img src="charity.jpg">
+<img src="math.jpg">
 </div>
 </section>
 
 <section>
-<h2 class="title">Places I Have Been</h2>
-<div id="map"></div>
+<h2>Places I Visited</h2>
+<div class="map">
+<img src="map.jpg">
+
+<div class="heart" style="top:40%;left:60%" onclick="show('mocchau.jpg')">❤</div>
+<div class="heart" style="top:35%;left:55%" onclick="show('hagiang.jpg')">❤</div>
+<div class="heart" style="top:50%;left:65%" onclick="show('quangninh.jpg')">❤</div>
+
+</div>
 </section>
 
-<section class="contact">
-<h2 class="title">Contact</h2>
-<a href="mailto:yourmail@gmail.com">Email</a>
-<a href="https://facebook.com/">Facebook</a>
-<a href="https://instagram.com/">Instagram</a>
-</section>
+<div class="popup" id="popup" onclick="hide()">
+<img id="popupImg">
+</div>
 
 <footer>
-<p>© 2026 Ta Thi Thanh Dieu Portfolio</p>
+© 2026 Tạ Thị Thanh Diệu Portfolio
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let index=0
-function showSlide(){
-const slides=document.getElementById('slides')
-slides.style.transform='translateX('+(index*-800)+'px)'
+function show(img){
+document.getElementById('popup').style.display='flex'
+document.getElementById('popupImg').src=img
 }
 
-function next(){
-index=(index+1)%3
-showSlide()
+function hide(){
+document.getElementById('popup').style.display='none'
 }
-
-function prev(){
-index=(index-1+3)%3
-showSlide()
-}
-
-const map=L.map('map').setView([21.5,105.8],6)
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(map)
-
-const heartIcon=L.divIcon({
-html:'❤️',
-className:'',
-iconSize:[30,30]
-})
-
-const locations=[
-{name:'Moc Chau',coords:[20.8469,104.652]},
-{name:'Ha Giang',coords:[22.8233,104.9836]},
-{name:'Quang Ninh',coords:[21.0064,107.2925]}
-]
-
-locations.forEach(l=>{
-L.marker(l.coords,{icon:heartIcon}).addTo(map).bindPopup('<b>'+l.name+'</b><br><img src="'+l.name.toLowerCase().replace(' ','')+'.jpg" width="200">')
-})
-
-const line=L.polyline(locations.map(l=>l.coords),{color:'pink'}).addTo(map)
-map.fitBounds(line.getBounds())
 </script>
 
 </body>
