@@ -1,343 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ta Thi Thanh Dieu | Portfolio</title>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
+<title>Ta Thi Thanh Dieu Portfolio</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
 body{
-font-family:'Poppins',sans-serif;
-background:#0f172a;
-color:white;
+background:linear-gradient(120deg,#ffd6e7,#ffffff);
+color:#333;
 overflow-x:hidden;
 }
 
-/* PARTICLE BACKGROUND */
-
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-/* NAVBAR */
-
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px 10%;
-position:sticky;
-top:0;
-backdrop-filter:blur(10px);
-background:rgba(0,0,0,0.4);
-}
-
-nav h2{
-color:#22d3ee;
-}
-
-nav ul{
-display:flex;
-gap:20px;
-list-style:none;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-}
-
-/* HERO */
-
-.hero{
+header{
 text-align:center;
-padding:120px 20px;
+padding:80px 20px;
 }
 
-.hero img{
-width:160px;
-height:160px;
+.avatar{
+width:300px;
+height:300px;
 border-radius:50%;
-border:4px solid #22d3ee;
-margin-bottom:20px;
-box-shadow:0 0 30px #22d3ee;
+object-fit:cover;
+border:6px solid white;
+box-shadow:0 0 30px #ff7eb3,0 0 60px #ff7eb3;
+animation:float 4s ease-in-out infinite;
 }
 
-.hero h1{
-font-size:48px;
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
 }
 
-.typing{
-color:#22d3ee;
-font-weight:600;
+h1{
+font-size:42px;
+margin-top:20px;
 }
 
-/* SECTION */
+.tag{
+color:#ff4fa3;
+margin-top:10px;
+font-weight:500;
+}
 
 section{
-max-width:1100px;
-margin:auto;
-padding:70px 20px;
+padding:80px 10%;
 }
 
-h2{
-color:#22d3ee;
-margin-bottom:25px;
+.title{
+font-size:32px;
+margin-bottom:40px;
+text-align:center;
+color:#ff4fa3;
 }
 
-/* GLASS CARD */
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:30px;
-border-radius:12px;
+.skills{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
 }
-
-/* SKILLS */
 
 .skill{
-margin-bottom:20px;
-}
-
-.bar{
-background:#1e293b;
-height:10px;
+background:white;
+padding:20px 35px;
 border-radius:20px;
-overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:0.4s;
 }
 
-.fill{
-background:#22d3ee;
-height:100%;
+.skill:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 15px 40px rgba(255,0,130,0.3);
 }
-
-/* PROJECT */
 
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+gap:30px;
 }
 
-.project{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:12px;
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:0.5s;
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card:hover{
+transform:translateY(-15px) rotate(1deg);
+box-shadow:0 20px 50px rgba(255,0,140,0.3);
+}
+
+.card-content{
+padding:20px;
+}
+
+.slider{
+position:relative;
+max-width:800px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+}
+
+.slides{
+display:flex;
+transition:transform 0.6s ease;
+}
+
+.slides img{
+width:800px;
+height:450px;
+object-fit:cover;
+}
+
+.buttons{
+text-align:center;
+margin-top:15px;
+}
+
+.buttons button{
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#ff4fa3;
+color:white;
+cursor:pointer;
+margin:5px;
+}
+
+#map{
+height:450px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+}
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+padding:12px 20px;
+border-radius:30px;
+background:#ff4fa3;
+color:white;
+text-decoration:none;
 transition:0.3s;
 }
 
-.project:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #22d3ee;
+.contact a:hover{
+transform:scale(1.1);
+background:#ff2e93;
 }
-
-button{
-margin-top:10px;
-padding:8px 16px;
-border:none;
-background:#22d3ee;
-color:black;
-border-radius:6px;
-cursor:pointer;
-}
-
-/* FOOTER */
 
 footer{
 text-align:center;
-padding:30px;
-opacity:0.6;
+padding:40px;
+color:#777;
 }
-
 </style>
-
 </head>
 
 <body>
 
-<div id="particles-js"></div>
+<header>
+<img src="avatar.jpg" class="avatar">
+<h1>Ta Thi Thanh Dieu</h1>
+<p class="tag">Finance Student | Data Enthusiast | Travel Lover</p>
+</header>
 
-<nav>
-
-<h2>Portfolio</h2>
-
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</nav>
-
-<div class="hero">
-
-<img src="profile.jpg">
-
-<h1>TẠ Thị Thanh Diệu</h1>
-
-<p class="typing">Finance • Data Analysis • FinTech</p>
-
-<p>Finance and Banking Student</p>
-
+<section>
+<h2 class="title">Skills</h2>
+<div class="skills">
+<div class="skill">Communication</div>
+<div class="skill">Analysis</div>
+<div class="skill">SQL</div>
 </div>
-
-<section id="about" data-aos="fade-up">
-
-<h2>About Me</h2>
-
-<div class="card">
-
-<p>
-
-I am a Finance and Banking student interested in financial markets,
-financial modeling and financial data analysis.
-
-I enjoy applying programming and data science techniques
-to financial decision making and risk analysis.
-
-</p>
-
-</div>
-
 </section>
 
-<section id="skills" data-aos="fade-up">
-
-<h2>Skills</h2>
-
-<div class="card">
-
-<div class="skill">
-
-<p>Python</p>
-
-<div class="bar">
-<div class="fill" style="width:80%"></div>
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>Pandas</p>
-
-<div class="bar">
-<div class="fill" style="width:75%"></div>
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>Data Analysis</p>
-
-<div class="bar">
-<div class="fill" style="width:85%"></div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="projects" data-aos="fade-up">
-
-<h2>Projects</h2>
-
+<section>
+<h2 class="title">Projects</h2>
 <div class="projects">
 
-<div class="project">
-
-<h3>Bond Pricing Analysis</h3>
-
-<p>Calculate bond price and interest rate sensitivity.</p>
-
-<button>View Code</button>
-
+<div class="card">
+<img src="dog.jpg">
+<div class="card-content">
+<h3>Animal Rescue</h3>
+<p>Participated in rescuing abandoned dogs and cats and supporting shelters.</p>
 </div>
-
-<div class="project">
-
-<h3>Stock Market Analysis</h3>
-
-<p>Analyze stock return and volatility using Python.</p>
-
-<button>View Code</button>
-
 </div>
-
-<div class="project">
-
-<h3>Credit Risk Prediction</h3>
-
-<p>Machine learning model predicting loan default risk.</p>
-
-<button>View Code</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact" data-aos="fade-up">
-
-<h2>Contact</h2>
 
 <div class="card">
-
-<p>Email: tthd2306@gmail.com</p>
-
-<p>GitHub: https://github.com/yourusername</p>
-
+<img src="charity.jpg">
+<div class="card-content">
+<h3>Charity Activities</h3>
+<p>Volunteer activities supporting communities and children in difficult areas.</p>
+</div>
 </div>
 
+<div class="card">
+<img src="math.jpg">
+<div class="card-content">
+<h3>Math Competition</h3>
+<p>Participated in mathematics competitions demonstrating logical thinking.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 class="title">Travel Gallery</h2>
+<div class="slider">
+<div class="slides" id="slides">
+<img src="mocchau.jpg">
+<img src="hagiang.jpg">
+<img src="quangninh.jpg">
+</div>
+</div>
+
+<div class="buttons">
+<button onclick="prev()">Prev</button>
+<button onclick="next()">Next</button>
+</div>
+</section>
+
+<section>
+<h2 class="title">Places I Have Been</h2>
+<div id="map"></div>
+</section>
+
+<section class="contact">
+<h2 class="title">Contact</h2>
+<a href="mailto:yourmail@gmail.com">Email</a>
+<a href="https://facebook.com/">Facebook</a>
+<a href="https://instagram.com/">Instagram</a>
 </section>
 
 <footer>
-
-<p>© 2026 Ta Thi Thanh Dieu</p>
-
+<p>© 2026 Ta Thi Thanh Dieu Portfolio</p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-AOS.init();
-</script>
-
-<script>
-
-particlesJS("particles-js",{
-particles:{
-number:{value:80},
-size:{value:3},
-move:{speed:1},
-line_linked:{enable:true}
+let index=0
+function showSlide(){
+const slides=document.getElementById('slides')
+slides.style.transform='translateX('+(index*-800)+'px)'
 }
-});
 
+function next(){
+index=(index+1)%3
+showSlide()
+}
+
+function prev(){
+index=(index-1+3)%3
+showSlide()
+}
+
+const map=L.map('map').setView([21.5,105.8],6)
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(map)
+
+const heartIcon=L.divIcon({
+html:'❤️',
+className:'',
+iconSize:[30,30]
+})
+
+const locations=[
+{name:'Moc Chau',coords:[20.8469,104.652]},
+{name:'Ha Giang',coords:[22.8233,104.9836]},
+{name:'Quang Ninh',coords:[21.0064,107.2925]}
+]
+
+locations.forEach(l=>{
+L.marker(l.coords,{icon:heartIcon}).addTo(map).bindPopup('<b>'+l.name+'</b><br><img src="'+l.name.toLowerCase().replace(' ','')+'.jpg" width="200">')
+})
+
+const line=L.polyline(locations.map(l=>l.coords),{color:'pink'}).addTo(map)
+map.fitBounds(line.getBounds())
 </script>
 
 </body>
