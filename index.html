@@ -19,12 +19,12 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-/* BACKGROUND ANIMATION */
+/* BACKGROUND */
 
 body{
-background:linear-gradient(120deg,#ffd6e7,#ffffff,#ffe6f3);
-background-size:400% 400%;
-animation:bg 12s infinite;
+background: linear-gradient(120deg, #1e2a38, #2c3e50, #f5f7fa);
+background-size: 300% 300%;
+animation: bg 15s ease infinite;
 color:#333;
 }
 
@@ -34,51 +34,65 @@ color:#333;
 100%{background-position:0% 50%}
 }
 
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 60%);
+pointer-events:none;
+}
+
 /* HEADER */
 
 header{
 text-align:center;
-padding:90px 20px;
+padding:100px 20px;
+color:white;
+}
+
+.avatar-wrap{
+display:inline-block;
+padding:8px;
+border-radius:50%;
+background: linear-gradient(135deg, #4facfe, #00f2fe);
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 .avatar{
-width:320px;
-height:320px;
+width:220px;
+height:220px;
 border-radius:50%;
 object-fit:cover;
-border:6px solid white;
-box-shadow:0 0 40px #ff69b4,0 0 80px #ff69b4;
-animation:float 4s ease-in-out infinite;
+border:4px solid #fff;
 }
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
+/* TEXT */
 
 h1{
-font-size:44px;
+font-size:38px;
 margin-top:20px;
 }
 
 .tag{
 margin-top:10px;
-font-size:18px;
-color:#ff4fa3;
+font-size:16px;
+color:#cfd8dc;
 }
 
 /* SECTIONS */
 
 section{
-padding:80px 10%;
+padding:70px 10%;
 }
 
 .title{
 text-align:center;
-font-size:32px;
-margin-bottom:50px;
-color:#ff4fa3;
+font-size:28px;
+margin-bottom:40px;
+color:#1e2a38;
 }
 
 /* ABOUT */
@@ -88,7 +102,7 @@ max-width:800px;
 margin:auto;
 text-align:center;
 line-height:1.8;
-font-size:17px;
+font-size:16px;
 }
 
 /* SKILLS */
@@ -98,19 +112,19 @@ margin:20px 0;
 }
 
 .skill-name{
-margin-bottom:5px;
+margin-bottom:6px;
 }
 
 .skill-bar{
 background:#eee;
-height:12px;
+height:10px;
 border-radius:20px;
 overflow:hidden;
 }
 
 .skill-progress{
-height:12px;
-background:#ff69b4;
+height:10px;
+background:#1e2a38;
 border-radius:20px;
 }
 
@@ -119,24 +133,23 @@ border-radius:20px;
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .card{
 background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-transition:0.5s;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.05);
-box-shadow:0 20px 50px rgba(255,0,150,0.3);
+transform:translateY(-8px);
 }
 
 .card h3{
-color:#ff4fa3;
+color:#1e2a38;
 margin-bottom:10px;
 }
 
@@ -156,17 +169,17 @@ text-align:center;
 .contact a{
 display:inline-block;
 margin:10px;
-padding:12px 22px;
-background:#ff69b4;
+padding:14px 26px;
+background:linear-gradient(135deg,#1e2a38,#2c3e50);
 color:white;
 border-radius:30px;
 text-decoration:none;
 transition:0.3s;
+font-weight:500;
 }
 
 .contact a:hover{
-transform:scale(1.1);
-background:#ff3e9c;
+transform:translateY(-3px) scale(1.05);
 }
 
 /* FOOTER */
@@ -185,16 +198,17 @@ color:#777;
 
 <header>
 
+<div class="avatar-wrap">
 <img src="avatar.jpg" class="avatar">
+</div>
 
 <h1>Ta Thi Thanh Dieu</h1>
 
 <p class="tag">
-Finance & Banking Student – Foreign Trade University
+Aspiring Financial Analyst | Finance & Banking Student | Data-Driven Mindset
 </p>
 
 </header>
-
 
 <!-- ABOUT -->
 
@@ -203,19 +217,14 @@ Finance & Banking Student – Foreign Trade University
 <h2 class="title">About Me</h2>
 
 <p class="about">
+I am a Finance and Banking student at Foreign Trade University with a strong interest in financial analysis, investment, and data-driven decision making.
 
-Hello! My name is <b>Ta Thi Thanh Dieu</b>.  
-I am a student majoring in Finance and Banking at Foreign Trade University.
+I am currently developing my skills in financial modeling, data analysis, and SQL to better understand financial markets.
 
-I am passionate about financial analysis, investment, and data-driven decision making.  
-Currently, I am developing my skills in financial modeling, data analysis, and SQL to better understand financial markets.
-
-My goal is to gain experience through projects and internships in finance, banking, and financial technology.
-
+I am seeking internship opportunities in finance, banking, or financial technology to gain practical experience and contribute to real-world projects.
 </p>
 
 </section>
-
 
 <!-- SKILLS -->
 
@@ -246,7 +255,6 @@ My goal is to gain experience through projects and internships in finance, banki
 
 </section>
 
-
 <!-- PROJECTS -->
 
 <section>
@@ -258,23 +266,24 @@ My goal is to gain experience through projects and internships in finance, banki
 <div class="card">
 <h3>Stock Market Analysis</h3>
 <p>
-Analyzed stock price trends using financial indicators such as moving averages and volatility.
-Used Excel and data visualization to interpret market performance.
+Analyzed historical stock data using moving averages and volatility indicators.  
+Built Excel models to support investment decisions.
 </p>
 </div>
 
 <div class="card">
 <h3>Personal Finance Dashboard</h3>
 <p>
-Built a dashboard to track income, expenses, and savings.
-The project focuses on improving financial management and budgeting strategies.
+Developed a dashboard to track income, expenses, and savings.  
+Improved budgeting through data visualization.
 </p>
 </div>
 
 <div class="card">
 <h3>Bank Risk Analysis</h3>
 <p>
-Studied financial ratios used in banking risk management such as liquidity ratio, capital adequacy, and profitability indicators.
+Analyzed financial ratios such as liquidity, profitability, and capital adequacy  
+to evaluate banking performance.
 </p>
 </div>
 
@@ -282,12 +291,11 @@ Studied financial ratios used in banking risk management such as liquidity ratio
 
 </section>
 
-
-<!-- FINANCE CHART -->
+<!-- CHART -->
 
 <section>
 
-<h2 class="title">Sample Financial Data</h2>
+<h2 class="title">Financial Analysis</h2>
 
 <div class="chart-container">
 <canvas id="financeChart"></canvas>
@@ -295,27 +303,25 @@ Studied financial ratios used in banking risk management such as liquidity ratio
 
 </section>
 
-
 <!-- CONTACT -->
 
 <section class="contact">
 
 <h2 class="title">Contact</h2>
 
-<a href="mailto:yourmail@gmail.com">Email</a>
-<a href="#">Facebook</a>
-<a href="#">Instagram</a>
-<a href="#">GitHub</a>
+<p style="margin-bottom:20px;">
+I am open to internship opportunities and professional connections.
+</p>
+
+<a href="mailto:tthd2306@gmail.com">Email</a>
+<a href="https://www.facebook.com/share/1Nm2eNwwxY/?mibextid=wwXIfr" target="_blank">Facebook</a>
+<a href="tel:0334215741">0334215741</a>
 
 </section>
 
-
 <footer>
-
 <p>© 2026 Ta Thi Thanh Dieu Portfolio</p>
-
 </footer>
-
 
 <script>
 
@@ -326,19 +332,16 @@ type:'line',
 data:{
 labels:['Jan','Feb','Mar','Apr','May','Jun'],
 datasets:[{
-label:'Sample Investment Growth',
-data:[100,120,140,150,180,210],
-borderColor:'#ff69b4',
-backgroundColor:'rgba(255,105,180,0.2)',
+label:'Portfolio Growth Simulation',
+data:[100,115,130,150,170,200],
+borderColor:'#1e2a38',
+backgroundColor:'rgba(30,42,56,0.2)',
 tension:0.4,
 fill:true
 }]
 },
 options:{
-responsive:true,
-plugins:{
-legend:{display:true}
-}
+responsive:true
 }
 })
 
