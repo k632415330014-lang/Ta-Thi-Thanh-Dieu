@@ -1,356 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ta Thi Thanh Dieu | Finance Portfolio</title>
+<title>Ta Thi Thanh Dieu | AI-Finance Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-/* BACKGROUND PRO FINANCE */
-
+/* =======================
+   BACKGROUND AI / GALAXY
+======================= */
 body{
-background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-background-size: 300% 300%;
-animation: bg 18s ease infinite;
-color:#333;
+  background: radial-gradient(circle at 20% 30%, #1a1a2e, #0f3460, #000000);
+  background-size: 200% 200%;
+  animation: bg 20s ease infinite;
+  color:#e0e0e0;
+  min-height: 100vh;
 }
 
 @keyframes bg{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-/* LIGHT EFFECT */
-
+/* light / galaxy effect */
 body::before{
-content:'';
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.12), transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 40%);
-pointer-events:none;
+  content:'';
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0,255,255,0.15), transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(138,43,226,0.15), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 60%);
+  pointer-events:none;
+}
+
+/* stars */
+body::after{
+  content:'';
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity:0.15;
+  pointer-events:none;
 }
 
 /* HEADER */
-
 header{
-text-align:center;
-padding:100px 20px;
-color:white;
+  text-align:center;
+  padding:100px 20px;
+  color:white;
 }
-
 .avatar-wrap{
-display:inline-block;
-padding:8px;
-border-radius:50%;
-background: linear-gradient(135deg, #4facfe, #00f2fe);
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  display:inline-block;
+  padding:8px;
+  border-radius:50%;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
-
 .avatar{
-width:220px;
-height:220px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #fff;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #fff;
 }
-
-/* TEXT */
-
 h1{
-font-size:38px;
-margin-top:20px;
-color:white;
+  font-size:38px;
+  margin-top:20px;
+  color:#ffffff;
 }
-
 .tag{
-margin-top:10px;
-font-size:16px;
-color:#cfd8dc;
+  margin-top:10px;
+  font-size:16px;
+  color:#a0c4ff;
 }
 
 /* SECTIONS */
-
 section{
-padding:70px 10%;
+  padding:70px 10%;
 }
-
 .title{
-text-align:center;
-font-size:28px;
-margin-bottom:40px;
-color:#ffffff;
+  text-align:center;
+  font-size:28px;
+  margin-bottom:40px;
+  color:#00f5d4;
 }
 
 /* ABOUT */
-
 .about{
-max-width:800px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-font-size:16px;
-color:#e0e0e0;
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  line-height:1.8;
+  font-size:16px;
+  color:#dcdcdc;
 }
 
 /* SKILLS */
-
 .skill{
-margin:20px 0;
+  margin:20px 0;
 }
-
 .skill-name{
-margin-bottom:6px;
-color:#ffffff;
+  margin-bottom:6px;
+  color:#ffffff;
 }
-
 .skill-bar{
-background:rgba(255,255,255,0.2);
-height:10px;
-border-radius:20px;
-overflow:hidden;
+  background:rgba(255,255,255,0.2);
+  height:10px;
+  border-radius:20px;
+  overflow:hidden;
 }
-
 .skill-progress{
-height:10px;
-background:#4facfe;
-border-radius:20px;
+  height:10px;
+  background:#4facfe;
+  border-radius:20px;
 }
 
 /* PROJECTS */
-
 .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
 }
-
 .card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-transition:0.3s;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
 }
-
 .card:hover{
-transform:translateY(-8px);
+  transform:translateY(-8px);
 }
-
 .card h3{
-color:#1e2a38;
-margin-bottom:10px;
+  color:#1e2a38;
+  margin-bottom:10px;
 }
 
 /* CHART */
-
 .chart-container{
-max-width:600px;
-margin:auto;
+  max-width:600px;
+  margin:auto;
 }
 
 /* CONTACT */
-
 .contact{
-text-align:center;
+  text-align:center;
 }
-
 .contact a{
-display:inline-block;
-margin:10px;
-padding:14px 26px;
-background:linear-gradient(135deg,#4facfe,#00f2fe);
-color:white;
-border-radius:30px;
-text-decoration:none;
-transition:0.3s;
-font-weight:500;
+  display:inline-block;
+  margin:10px;
+  padding:14px 26px;
+  background:linear-gradient(135deg,#4facfe,#00f2fe);
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+  font-weight:500;
 }
-
 .contact a:hover{
-transform:translateY(-3px) scale(1.05);
+  transform:translateY(-3px) scale(1.05);
 }
 
 /* FOOTER */
-
 footer{
-text-align:center;
-padding:40px;
-color:#ccc;
+  text-align:center;
+  padding:40px;
+  color:#ccc;
 }
 
 </style>
-
 </head>
-
 <body>
 
 <header>
-
-<div class="avatar-wrap">
-<img src="avatar.jpg" class="avatar">
-</div>
-
-<h1>Ta Thi Thanh Dieu</h1>
-
-<p class="tag">
-Aspiring Financial Analyst | Finance & Banking Student | Data-Driven Mindset
-</p>
-
+  <div class="avatar-wrap">
+    <img src="avatar.jpg" class="avatar">
+  </div>
+  <h1>Ta Thi Thanh Dieu</h1>
+  <p class="tag">
+    Aspiring Financial Analyst | Finance & Banking Student | Data-Driven Mindset
+  </p>
 </header>
 
 <!-- ABOUT -->
-
 <section>
-
-<h2 class="title">About Me</h2>
-
-<p class="about">
-I am a Finance and Banking student with a strong interest in financial analysis, investment, and data-driven decision making.
-
-I am developing skills in financial modeling, data analysis, and SQL to better understand financial markets.
-
-I am seeking internship opportunities in finance, banking, or fintech to gain real-world experience.
-</p>
-
+  <h2 class="title">About Me</h2>
+  <p class="about">
+    I am a Finance and Banking student with a strong interest in financial analysis, investment, and data-driven decision making.
+    Currently developing skills in financial modeling, data analysis, and SQL to better understand financial markets.
+    I am seeking internship opportunities in finance, banking, or fintech to gain real-world experience.
+  </p>
 </section>
 
 <!-- SKILLS -->
-
 <section>
-
-<h2 class="title">Skills</h2>
-
-<div class="skill">
-<div class="skill-name">Communication</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width:85%"></div>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Financial Analysis</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width:80%"></div>
-</div>
-</div>
-
-<div class="skill">
-<div class="skill-name">SQL</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width:70%"></div>
-</div>
-</div>
-
+  <h2 class="title">Skills</h2>
+  <div class="skill">
+    <div class="skill-name">Communication</div>
+    <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name">Financial Analysis</div>
+    <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name">SQL</div>
+    <div class="skill-bar"><div class="skill-progress" style="width:70%"></div></div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-
 <section>
-
-<h2 class="title">Finance Projects</h2>
-
-<div class="projects">
-
-<div class="card">
-<h3>Stock Market Analysis</h3>
-<p>
-Analyzed stock trends using moving averages and volatility indicators.  
-Built Excel models to support investment decisions.
-</p>
-</div>
-
-<div class="card">
-<h3>Personal Finance Dashboard</h3>
-<p>
-Developed a dashboard to track income and expenses.  
-Improved financial planning through visualization.
-</p>
-</div>
-
-<div class="card">
-<h3>Bank Risk Analysis</h3>
-<p>
-Evaluated liquidity, profitability, and capital ratios  
-to assess banking performance.
-</p>
-</div>
-
-</div>
-
+  <h2 class="title">Finance Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Stock Market Analysis</h3>
+      <p>Analyzed stock trends using moving averages and volatility indicators. Built Excel models to support investment decisions.</p>
+    </div>
+    <div class="card">
+      <h3>Personal Finance Dashboard</h3>
+      <p>Developed a dashboard to track income and expenses. Improved financial planning through visualization.</p>
+    </div>
+    <div class="card">
+      <h3>Bank Risk Analysis</h3>
+      <p>Evaluated liquidity, profitability, and capital ratios to assess banking performance.</p>
+    </div>
+  </div>
 </section>
 
 <!-- CHART -->
-
 <section>
-
-<h2 class="title">Financial Analysis</h2>
-
-<div class="chart-container">
-<canvas id="financeChart"></canvas>
-</div>
-
+  <h2 class="title">Financial Analysis</h2>
+  <div class="chart-container">
+    <canvas id="financeChart"></canvas>
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section class="contact">
-
-<h2 class="title">Contact</h2>
-
-<p style="margin-bottom:20px; color:#ddd;">
-I am open to internship opportunities and professional connections.
-</p>
-
-<a href="mailto:tthd2306@gmail.com">Email</a>
-<a href="https://www.facebook.com/share/1Nm2eNwwxY/?mibextid=wwXIfr" target="_blank">Facebook</a>
-<a href="tel:0334215741">0334215741</a>
-
+  <h2 class="title">Contact</h2>
+  <p style="margin-bottom:20px; color:#ddd;">
+    Open to internships and professional connections
+  </p>
+  <a href="mailto:tthd2306@gmail.com">Email</a>
+  <a href="https://www.facebook.com/share/1Nm2eNwwxY/?mibextid=wwXIfr" target="_blank">Facebook</a>
+  <a href="tel:0334215741">0334215741</a>
 </section>
 
 <footer>
-<p>© 2026 Ta Thi Thanh Dieu Portfolio</p>
+  <p>© 2026 Ta Thi Thanh Dieu Portfolio</p>
 </footer>
 
 <script>
-
 const ctx=document.getElementById('financeChart')
-
 new Chart(ctx,{
-type:'line',
-data:{
-labels:['Jan','Feb','Mar','Apr','May','Jun'],
-datasets:[{
-label:'Portfolio Growth Simulation',
-data:[100,115,130,150,170,200],
-borderColor:'#4facfe',
-backgroundColor:'rgba(79,172,254,0.2)',
-tension:0.4,
-fill:true
-}]
-},
-options:{
-responsive:true
-}
+  type:'line',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets:[{
+      label:'Portfolio Growth Simulation',
+      data:[100,115,130,150,170,200],
+      borderColor:'#4facfe',
+      backgroundColor:'rgba(79,172,254,0.2)',
+      tension:0.4,
+      fill:true
+    }]
+  },
+  options:{
+    responsive:true
+  }
 })
-
 </script>
 
 </body>
